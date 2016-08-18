@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Pane?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css"
+	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+	fx:controller="com.octanium.main.controller.MainDispatcherViewController">
+	<children>
+		<HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0"
+			styleClass="HBox" VBox.vgrow="NEVER">
+			<children>
+				<Label fx:id="sessionLabel" alignment="BASELINE_LEFT"/>
+				<Button fx:id="btnMenuBar" alignment="CENTER"
+					mnemonicParsing="false" onAction="#loadPane" text="Show Form 1"
+					textAlignment="RIGHT" HBox.hgrow="NEVER">
+					<HBox.margin>
+						<Insets right="10.0" />
+					</HBox.margin>
+				</Button>
+			</children>
+			<VBox.margin>
+				<Insets />
+			</VBox.margin>
+		</HBox>
+		<SplitPane dividerPositions="0.29797979797979796"
+			focusTraversable="true" prefHeight="160.0" prefWidth="200.0"
+			VBox.vgrow="ALWAYS">
+			<items>
+				<AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0"
+					prefWidth="150.0">
+					<children>
+
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+							prefWidth="200.0">
+							<children>
+								<Button fx:id="btnRegistro" mnemonicParsing="false"
+									onAction="#loadRegistro" text="Registro" AnchorPane.leftAnchor="0.0"
+									AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+								<Button fx:id="btnHorarios" layoutX="40.0" layoutY="36.0"
+									mnemonicParsing="false" onAction="#loadHorarios" text="Horarios"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="30.0" />
+								<Button fx:id="btnApertura" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" onAction="#loadApertura" text="Apertura"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="60.0" />
+								<Button fx:id="btnDepositos" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" text="Depósitos"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="90.0" />
+								<Button fx:id="btnFacturacion" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" text="Facturación"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="120.0" />
+								<Button fx:id="btnTickets" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" text="Tickets"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="150.0" />
+								<Button fx:id="btnCierre" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" text="Cierre"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="180.0" />
+								<Button fx:id="btnCambioNip" layoutX="80.0" layoutY="36.0"
+									mnemonicParsing="false" text="Cambiar NIP"
+									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
+									AnchorPane.topAnchor="210.0" />
+							</children>
+						</AnchorPane>
+
+					</children>
+				</AnchorPane>
+				<AnchorPane minWidth="200.0">
+					<children>
+						<VBox fx:id="dataPane" layoutX="10.0" layoutY="50.0"
+							AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
+							AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+							<!-- <children> <HBox alignment="CENTER" prefHeight="50.0" styleClass="HBox" 
+								AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"> 
+								<children> <Button mnemonicParsing="false" text="Button" HBox.hgrow="NEVER"> 
+								<HBox.margin> <Insets right="5.0" /> </HBox.margin> </Button> <Button mnemonicParsing="false" 
+								text="Button" HBox.hgrow="NEVER"> <HBox.margin> <Insets right="5.0" /> </HBox.margin> 
+								</Button> <Button mnemonicParsing="false" text="Button" HBox.hgrow="NEVER" 
+								/> </children> </HBox> <TableView layoutX="173.0" layoutY="82.0" prefHeight="282.0" 
+								prefWidth="396.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" 
+								AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" VBox.vgrow="ALWAYS"> 
+								<columns> <TableColumn prefWidth="150.0" text="C1ofTable1" /> <TableColumn 
+								prefWidth="75.0" text="C2" /> </columns> <VBox.margin> <Insets top="10.0" 
+								/> </VBox.margin> </TableView> </children> -->
+						</VBox>
+					</children>
+				</AnchorPane>
+			</items>
+		</SplitPane>
+		<Button fx:id="logoutButton" mnemonicParsing="false" text="Salir" />
+	</children>
+</VBox>

@@ -45,3 +45,11 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+*.class
+*.settings
+*.classpath
+*.project
+bin/
+target/
+build.fxbuild
