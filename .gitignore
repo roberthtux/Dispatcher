@@ -50,7 +50,6 @@ Temporary Items
 *.class
 *.settings
 *.classpath
-*.project
 bin/
 target/
 build.fxbuild
