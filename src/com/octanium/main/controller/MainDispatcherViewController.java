@@ -1,8 +1,21 @@
 package com.octanium.main.controller;
 
 import java.io.IOException;
+import java.net.URI;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.ws.rs.client.Client;
+import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.UriBuilder;
+
+import org.glassfish.jersey.client.ClientConfig;
+
+import com.google.gson.Gson;
 import com.octanium.commons.model.User;
+import com.octanium.login.controller.Constantes;
 import com.octanium.login.controller.LoginManager;
 
 import javafx.event.ActionEvent;
@@ -40,6 +53,8 @@ public class MainDispatcherViewController {
     @FXML
     private Label sessionLabel;
 
+    private User user;
+    
     public void setDataPane(Node node) {
         // update VBox with new form(FXML) depends on which button is clicked
         dataPane.getChildren().setAll(node);
@@ -76,11 +91,26 @@ public class MainDispatcherViewController {
     	setDataPane(fadeAnimate("/com/octanium/main/view/Apertura.fxml"));
     }
     
-	  public void initialize() {
-		  System.out.println("Entrando...");
-	  }
+    public void initialize() {
+    	ClientConfig config = new ClientConfig();
+    	Client client = ClientBuilder.newClient(config);
+    	URI uri = UriBuilder.fromUri(Constantes.URI).build();
+    	WebTarget target = client.target(uri);
+    	
+    	String plainAnswer = 
+    			target.path("profile")
+    			.path(this.user.getId().toString())
+    			.request().accept(MediaType.APPLICATION_JSON).get(String.class);
+
+    	Gson gson = new Gson();
+    	Map<String, String> mapProfile = gson.fromJson(plainAnswer, HashMap.class);
+    	
+
+    	System.out.println("Entrando...");
+    }
 	  
 	  public void initSessionID(final LoginManager loginManager, User user) {
+		  this.user=user;
 	    sessionLabel.setText(user.getName() +" "+user.getFirstLastname() +" "+ user.getSecondLastname());
 	    logoutButton.setOnAction(new EventHandler<ActionEvent>() {
 	      @Override public void handle(ActionEvent event) {
