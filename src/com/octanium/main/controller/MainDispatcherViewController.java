@@ -15,7 +15,7 @@ import org.glassfish.jersey.client.ClientConfig;
 
 import com.google.gson.Gson;
 import com.octanium.commons.model.User;
-import com.octanium.login.controller.Constantes;
+import com.octanium.commons.utils.Constants;
 import com.octanium.login.controller.LoginManager;
 
 import javafx.event.ActionEvent;
@@ -94,7 +94,7 @@ public class MainDispatcherViewController {
     public void initialize() {
     	ClientConfig config = new ClientConfig();
     	Client client = ClientBuilder.newClient(config);
-    	URI uri = UriBuilder.fromUri(Constantes.URI).build();
+    	URI uri = UriBuilder.fromUri(Constants.URI).build();
     	WebTarget target = client.target(uri);
     	
     	String plainAnswer = 
