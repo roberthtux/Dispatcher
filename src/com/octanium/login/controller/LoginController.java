@@ -1,6 +1,7 @@
 package com.octanium.login.controller;
 
 import java.net.URI;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,10 @@ import javax.ws.rs.core.UriBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.octanium.commons.model.User;
+import com.octanium.commons.utils.Constants;
+import com.octanium.commons.utils.DateDeserializer;
 
 import javafx.event.*;
 import javafx.fxml.FXML;
@@ -26,10 +30,6 @@ public class LoginController {
   @FXML private TextField password;
   @FXML private Button loginButton;
   
-  private static URI getBaseURI() {
-	  return UriBuilder.fromUri("http://sanfermin-core.dev/").build();
-  }   
-
   public void initialize() {}
   
   public void initManager(final LoginManager loginManager) {
@@ -56,7 +56,7 @@ public class LoginController {
 
 	    Client client = ClientBuilder.newClient(config);
 
-	    WebTarget target = client.target(getBaseURI());
+	    WebTarget target = client.target(Constants.URI);
 
 	    String response = target.path("user").//queryParam("name", "rcc").
 	              path(user.getText()).
@@ -71,7 +71,10 @@ public class LoginController {
 	        .request().accept(MediaType.APPLICATION_JSON).get(String.class);
 	    
 	  //convert the json string back to object
-	    Gson gson = new Gson();
+	    //Gson gson = new Gson();
+	    GsonBuilder gsonBuilder = new GsonBuilder();
+	    gsonBuilder.registerTypeAdapter(Date.class, new DateDeserializer());
+	    Gson gson = gsonBuilder.create();
         //Map<String, String> mapUser = gson.fromJson(plainAnswer, HashMap.class);
 	    User usr = new User();
 	    usr=gson.fromJson(plainAnswer, User.class);

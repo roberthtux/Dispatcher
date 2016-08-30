@@ -92,7 +92,13 @@ public class MainDispatcherViewController {
     }
     
     public void initialize() {
-    	ClientConfig config = new ClientConfig();
+    }
+	  
+	  public void initSessionID(final LoginManager loginManager, User user) {
+		  this.user=user;
+	    sessionLabel.setText(user.getName() +" "+user.getFirstLastname() +" "+ user.getSecondLastname());
+	    
+	    ClientConfig config = new ClientConfig();
     	Client client = ClientBuilder.newClient(config);
     	URI uri = UriBuilder.fromUri(Constants.URI).build();
     	WebTarget target = client.target(uri);
@@ -104,14 +110,7 @@ public class MainDispatcherViewController {
 
     	Gson gson = new Gson();
     	Map<String, String> mapProfile = gson.fromJson(plainAnswer, HashMap.class);
-    	
-
-    	System.out.println("Entrando...");
-    }
-	  
-	  public void initSessionID(final LoginManager loginManager, User user) {
-		  this.user=user;
-	    sessionLabel.setText(user.getName() +" "+user.getFirstLastname() +" "+ user.getSecondLastname());
+	    
 	    logoutButton.setOnAction(new EventHandler<ActionEvent>() {
 	      @Override public void handle(ActionEvent event) {
 	        loginManager.logout();
