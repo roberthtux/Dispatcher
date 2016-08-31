@@ -3,6 +3,7 @@ package com.octanium.main.controller;
 import java.io.IOException;
 import java.net.URI;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.ws.rs.client.Client;
@@ -14,6 +15,7 @@ import javax.ws.rs.core.UriBuilder;
 import org.glassfish.jersey.client.ClientConfig;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.octanium.commons.model.User;
 import com.octanium.commons.utils.Constants;
 import com.octanium.login.controller.LoginManager;
@@ -109,7 +111,7 @@ public class MainDispatcherViewController {
     			.request().accept(MediaType.APPLICATION_JSON).get(String.class);
 
     	Gson gson = new Gson();
-    	Map<String, String> mapProfile = gson.fromJson(plainAnswer, HashMap.class);
+    	List<Map<String, String>> mapProfile = gson.fromJson(plainAnswer, new TypeToken<List<Map<String, Object>>>() {}.getType());
 	    
 	    logoutButton.setOnAction(new EventHandler<ActionEvent>() {
 	      @Override public void handle(ActionEvent event) {
