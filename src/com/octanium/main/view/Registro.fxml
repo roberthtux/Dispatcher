@@ -9,22 +9,13 @@
    <children>
       <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="VBox" stylesheets="@main.css" VBox.vgrow="NEVER">
          <children>
-            <Button mnemonicParsing="false" text="Button">
+            <Button mnemonicParsing="false" text="Entrada">
                <HBox.margin>
                   <Insets right="5.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" text="Button" />
+            <Button mnemonicParsing="false" text="Salida" />
          </children>
       </HBox>
-      <TableView tableMenuButtonVisible="true" VBox.vgrow="ALWAYS">
-        <columns>
-          <TableColumn prefWidth="100.0" text="Row Index" />
-          <TableColumn prefWidth="300.0" text="Data" />
-        </columns>
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </TableView>
    </children>
 </VBox>

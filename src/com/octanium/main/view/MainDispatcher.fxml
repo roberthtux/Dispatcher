@@ -40,40 +40,40 @@
 					prefWidth="150.0">
 					<children>
 
-						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0"
+						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" fx:id="paneButtons"
 							prefWidth="200.0">
 							<children>
-								<Button fx:id="btnRegistro" mnemonicParsing="false"
+								<Button fx:id="btnRegistro" mnemonicParsing="false" visible="false"
 									onAction="#loadRegistro" text="Registro" AnchorPane.leftAnchor="0.0"
-									AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-								<Button fx:id="btnHorarios" layoutX="40.0" layoutY="36.0"
+									AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnHorarios" layoutX="40.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" onAction="#loadHorarios" text="Horarios"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="30.0" />
-								<Button fx:id="btnApertura" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnApertura" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" onAction="#loadApertura" text="Apertura"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="60.0" />
-								<Button fx:id="btnDepositos" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnDepositos" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" text="Depósitos"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="90.0" />
-								<Button fx:id="btnFacturacion" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnFacturacion" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" text="Facturación"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="120.0" />
-								<Button fx:id="btnTickets" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnTickets" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" text="Tickets"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="150.0" />
-								<Button fx:id="btnCierre" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnCierre" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" text="Cierre"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="180.0" />
-								<Button fx:id="btnCambioNip" layoutX="80.0" layoutY="36.0"
+									/>
+								<Button fx:id="btnCambioNip" layoutX="80.0" layoutY="36.0" visible="false"
 									mnemonicParsing="false" text="Cambiar NIP"
 									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									AnchorPane.topAnchor="210.0" />
+									/>
 							</children>
 						</AnchorPane>
 
