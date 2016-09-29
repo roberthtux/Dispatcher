@@ -28,13 +28,14 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
 public class MainDispatcherViewController {
 	@FXML
 	private Button btnMenuBar;
 	@FXML
-	private Button btnRegistro;
+	/*private Button btnRegistro;
 	@FXML
 	private Button btnHorarios;
 	@FXML
@@ -49,7 +50,7 @@ public class MainDispatcherViewController {
 	private Button btnCierre;
 	@FXML
 	private Button btnCambioNip;
-	@FXML
+	@FXML*/
 	private VBox dataPane;
 	@FXML
 	private Button logoutButton;
@@ -65,8 +66,9 @@ private AnchorPane paneButtons;
 		dataPane.getChildren().setAll(node);
 	}
 
-	public VBox fadeAnimate(String url) throws IOException {
-		VBox v = (VBox) FXMLLoader.load(getClass().getResource(url));
+	public BorderPane fadeAnimate(String url) throws IOException {
+		//VBox v = (VBox) FXMLLoader.load(getClass().getResource(url));
+		BorderPane v = (BorderPane) FXMLLoader.load(getClass().getResource(url));
 		/*  FadeTransition ft = new FadeTransition(Duration.millis(1500));
         ft.setNode(v);
         ft.setFromValue(0.1);
@@ -93,7 +95,10 @@ private AnchorPane paneButtons;
 		setDataPane(fadeAnimate("/com/octanium/main/view/Horarios.fxml"));
 	}
 	public void loadApertura(ActionEvent event) throws IOException {
-		setDataPane(fadeAnimate("/com/octanium/main/view/Apertura.fxml"));
+		setDataPane(fadeAnimate("/com/octanium/main/view/Apertura_BorderPane.fxml"));
+	}
+	public void loadCortes(ActionEvent event) throws IOException {
+		setDataPane(fadeAnimate("/com/octanium/main/view/Cortes_Parciales.fxml"));
 	}
 
 	public void initialize() {
@@ -117,8 +122,26 @@ private AnchorPane paneButtons;
 		List<HashMap<String, String>> mapOptions = gson.fromJson(plainAnswer, new TypeToken<List<HashMap<String, Object>>>() {}.getType());
 		Double topAnchor=0.0;
 		for(HashMap<String, String> option: mapOptions){
-			Button bt=(Button) paneButtons.lookup("#"+option.get("buttonId"));
-			bt.setVisible(true);
+			//Button bt=(Button) paneButtons.lookup("#"+option.get("buttonId"));
+			//bt.setVisible(true);
+			Button bt = new Button(option.get("buttonId"));
+			bt.setText(option.get("name"));
+			bt.setMnemonicParsing(false);
+			bt.setLayoutX(80.0);
+			bt.setLayoutY(36.0);
+			bt.setOnAction(new EventHandler<ActionEvent>() {
+	            @Override public void handle(ActionEvent e) {
+	                try {
+						setDataPane(fadeAnimate(option.get("url")));
+					} catch (IOException e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+	            }
+	        });
+			paneButtons.getChildren().add(bt) ;
+			AnchorPane.setLeftAnchor(bt, 0.0);
+			AnchorPane.setRightAnchor(bt, 0.0);
 			AnchorPane.setTopAnchor(bt, topAnchor);
 			topAnchor+=30.0;
 		}

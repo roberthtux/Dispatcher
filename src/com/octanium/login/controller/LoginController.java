@@ -26,14 +26,14 @@ import javafx.scene.control.*;
 
 /** Controls the login screen */
 public class LoginController {
-  @FXML private TextField user;
+  @FXML private TextField txtCode;
   @FXML private TextField password;
-  @FXML private Button loginButton;
+  @FXML private Button btnClean;
   
   public void initialize() {}
   
   public void initManager(final LoginManager loginManager) {
-    loginButton.setOnAction(new EventHandler<ActionEvent>() {
+	  txtCode.setOnAction(new EventHandler<ActionEvent>() {
       @Override public void handle(ActionEvent event) {
         //String sessionID = authorize();
     	  User usr = authorize();
@@ -59,7 +59,7 @@ public class LoginController {
 	    WebTarget target = client.target(Constants.URI);
 
 	    String response = target.path("user").//queryParam("name", "rcc").
-	              path(user.getText()).
+	              path(txtCode.getText()).
 	              request().
 	              accept(MediaType.APPLICATION_JSON).
 	              get(Response.class)
@@ -67,7 +67,7 @@ public class LoginController {
 
 	    String plainAnswer = 
 	        target.path("user")//.queryParam("name", "roberto")
-	        .path(user.getText())
+	        .path(txtCode.getText())
 	        .request().accept(MediaType.APPLICATION_JSON).get(String.class);
 	    
 	  //convert the json string back to object
@@ -81,7 +81,7 @@ public class LoginController {
         
     return 
       //mapUser.get("login").equals(user.getText()) //&& "sesame".equals(password.getText()) 
-    		usr.getLogin().equals(user.getText())
+    		usr.getLogin().equals(txtCode.getText())
             ? generateSessionID(usr) 
             : null;
   }
@@ -92,5 +92,10 @@ public class LoginController {
     sessionID++;
     //return "xyzzy - session " + sessionID;
     return usr;
+  }
+  
+  @FXML
+  public void onClick(ActionEvent ae){
+     txtCode.setText("");
   }
 }

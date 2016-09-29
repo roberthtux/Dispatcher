@@ -1,28 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Accordion?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.Pane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-	minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css"
-	xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="com.octanium.main.controller.MainDispatcherViewController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@main.css" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.octanium.main.controller.MainDispatcherViewController">
 	<children>
-		<HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0"
-			styleClass="HBox" VBox.vgrow="NEVER">
+		<HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0" styleClass="HBox" VBox.vgrow="NEVER">
 			<children>
-				<Label fx:id="sessionLabel" alignment="BASELINE_LEFT"/>
-				<Button fx:id="btnMenuBar" alignment="CENTER"
-					mnemonicParsing="false" onAction="#loadPane" text="Show Form 1"
-					textAlignment="RIGHT" HBox.hgrow="NEVER">
+				<Label fx:id="sessionLabel" alignment="BASELINE_LEFT" />
+				<Button fx:id="btnMenuBar" alignment="CENTER" mnemonicParsing="false" onAction="#loadPane" text="Show Form 1" textAlignment="RIGHT" HBox.hgrow="NEVER">
 					<HBox.margin>
 						<Insets right="10.0" />
 					</HBox.margin>
@@ -32,58 +23,31 @@
 				<Insets />
 			</VBox.margin>
 		</HBox>
-		<SplitPane dividerPositions="0.29797979797979796"
-			focusTraversable="true" prefHeight="160.0" prefWidth="200.0"
-			VBox.vgrow="ALWAYS">
-			<items>
-				<AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0"
-					prefWidth="150.0">
+      <BorderPane VBox.vgrow="ALWAYS">
+         <left>
+				<AnchorPane maxWidth="200.0" minHeight="0.0" minWidth="0.0" prefHeight="305.0" prefWidth="189.0" BorderPane.alignment="CENTER">
 					<children>
 
-						<AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" fx:id="paneButtons"
-							prefWidth="200.0">
+      						<AnchorPane fx:id="paneButtons" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 							<children>
-								<Button fx:id="btnRegistro" mnemonicParsing="false" visible="false"
-									onAction="#loadRegistro" text="Registro" AnchorPane.leftAnchor="0.0"
-									AnchorPane.rightAnchor="0.0" />
-								<Button fx:id="btnHorarios" layoutX="40.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" onAction="#loadHorarios" text="Horarios"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnApertura" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" onAction="#loadApertura" text="Apertura"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnDepositos" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" text="Depósitos"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnFacturacion" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" text="Facturación"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnTickets" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" text="Tickets"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnCierre" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" text="Cierre"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
-								<Button fx:id="btnCambioNip" layoutX="80.0" layoutY="36.0" visible="false"
-									mnemonicParsing="false" text="Cambiar NIP"
-									AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-									/>
+								<!-- <Button fx:id="btnRegistro" mnemonicParsing="false" onAction="#loadRegistro" text="Registro" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnHorarios" layoutX="40.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadHorarios" text="Horarios" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnApertura" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" onAction="#loadApertura" text="Apertura" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnDepositos" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" text="Depósitos" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnFacturacion" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" text="Facturación" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnTickets" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" text="Tickets" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnCierre" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" text="Cierre" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+								<Button fx:id="btnCambioNip" layoutX="80.0" layoutY="36.0" mnemonicParsing="false" text="Cambiar NIP" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" /> -->
 							</children>
 						</AnchorPane>
 
-					</children>
+      					</children>
 				</AnchorPane>
-				<AnchorPane minWidth="200.0">
+         </left>
+         <bottom>
+				<AnchorPane minWidth="200.0" BorderPane.alignment="CENTER">
 					<children>
-						<VBox fx:id="dataPane" layoutX="10.0" layoutY="50.0"
-							AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0"
-							AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+						<VBox fx:id="dataPane" layoutX="10.0" layoutY="50.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
 							<!-- <children> <HBox alignment="CENTER" prefHeight="50.0" styleClass="HBox" 
 								AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0"> 
 								<children> <Button mnemonicParsing="false" text="Button" HBox.hgrow="NEVER"> 
@@ -99,8 +63,11 @@
 						</VBox>
 					</children>
 				</AnchorPane>
-			</items>
-		</SplitPane>
+         </bottom>
+         <right>
+            <AnchorPane prefHeight="305.0" prefWidth="169.0" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
 		<Button fx:id="logoutButton" mnemonicParsing="false" text="Salir" />
 	</children>
 </VBox>
