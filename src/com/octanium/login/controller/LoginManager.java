@@ -13,6 +13,7 @@ import javafx.scene.*;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /** Manages control flow for logins */
 public class LoginManager {
@@ -54,7 +55,9 @@ public class LoginManager {
       controller.initManager(this);
       
       Stage stage = new Stage();
-      stage.setTitle("Login");
+      //stage.setTitle("Login");
+      stage.setResizable(false);
+      stage.initStyle(StageStyle.UTILITY);
       stage.setScene(sceneLogin);
       stage.show();
       
@@ -97,6 +100,7 @@ public class LoginManager {
 	      stage.setTitle("Principal");
 	      stage.setScene(sceneMain);
 	      stage.show();
+	      stage.setMaximized(true);
 	      
 	      sceneLogin.getWindow().hide();
 	      

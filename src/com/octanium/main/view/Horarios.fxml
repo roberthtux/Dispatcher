@@ -1,27 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.web.*?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.octanium.main.controller.HorariosController">
+<VBox alignment="CENTER" prefHeight="253.0" prefWidth="525.0" VBox.vgrow="ALWAYS" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.octanium.main.controller.HorariosController">
    <children>
-      <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" styleClass="VBox" stylesheets="@main.css" VBox.vgrow="NEVER">
+      <VBox alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" opacity="0.68" prefHeight="55.0" prefWidth="1027.0" style="-fx-background-color: #084B8A;">
          <children>
-            <Label text="Form - 2">
+            <Label text="Asignación de horarios" textFill="WHITE">
                <font>
-                  <Font size="18.0" />
+                  <Font name="System Bold" size="38.0" />
                </font>
             </Label>
          </children>
-      </HBox>
-      <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" VBox.vgrow="ALWAYS">
-         <VBox.margin>
-            <Insets top="10.0" />
-         </VBox.margin>
-      </HTMLEditor>
+      </VBox>
+      <FlowPane prefHeight="200.0" prefWidth="762.0">
+         <children>
+            <AnchorPane prefHeight="315.0" prefWidth="523.0">
+               <children>
+                  <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="14.0" prefHeight="109.0" prefWidth="439.0" text="Datos de horario">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="54.0" prefWidth="437.0">
+                           <children>
+                              <GridPane layoutY="12.0">
+                                <columnConstraints>
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                </columnConstraints>
+                                <rowConstraints>
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                </rowConstraints>
+                                 <children>
+                                    <Label text="Fecha" GridPane.halignment="RIGHT" />
+                                    <Label text="Turno" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    <DatePicker GridPane.columnIndex="1" />
+                                    <Label text="Dispensario" GridPane.columnIndex="2" GridPane.halignment="RIGHT" />
+                                    <Label text="Usuario" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <ChoiceBox prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="3" />
+                                 </children>
+                              </GridPane>
+                           </children>
+                        </AnchorPane>
+                    </content>
+                  </TitledPane>
+                  <TitledPane animated="false" collapsible="false" layoutX="14.0" layoutY="158.0" prefHeight="206.0" prefWidth="439.0" text="Detalle de actividades">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                    </content>
+                  </TitledPane>
+               </children>
+            </AnchorPane>
+         </children>
+      </FlowPane>
    </children>
 </VBox>

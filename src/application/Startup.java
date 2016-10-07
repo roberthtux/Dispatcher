@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /** Main application class for the login demo application */
 public class Startup extends Application {

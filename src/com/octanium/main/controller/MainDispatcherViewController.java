@@ -66,9 +66,9 @@ private AnchorPane paneButtons;
 		dataPane.getChildren().setAll(node);
 	}
 
-	public BorderPane fadeAnimate(String url) throws IOException {
-		//VBox v = (VBox) FXMLLoader.load(getClass().getResource(url));
-		BorderPane v = (BorderPane) FXMLLoader.load(getClass().getResource(url));
+	public VBox fadeAnimate(String url) throws IOException {
+		VBox v = (VBox) FXMLLoader.load(getClass().getResource(url));
+		//BorderPane v = (BorderPane) FXMLLoader.load(getClass().getResource(url));
 		/*  FadeTransition ft = new FadeTransition(Duration.millis(1500));
         ft.setNode(v);
         ft.setFromValue(0.1);
@@ -129,6 +129,10 @@ private AnchorPane paneButtons;
 			bt.setMnemonicParsing(false);
 			bt.setLayoutX(80.0);
 			bt.setLayoutY(36.0);
+			AnchorPane.setLeftAnchor(bt, 0.0);
+			AnchorPane.setRightAnchor(bt, 0.0);
+			AnchorPane.setTopAnchor(bt, topAnchor);
+			topAnchor+=30.0;
 			bt.setOnAction(new EventHandler<ActionEvent>() {
 	            @Override public void handle(ActionEvent e) {
 	                try {
@@ -140,10 +144,6 @@ private AnchorPane paneButtons;
 	            }
 	        });
 			paneButtons.getChildren().add(bt) ;
-			AnchorPane.setLeftAnchor(bt, 0.0);
-			AnchorPane.setRightAnchor(bt, 0.0);
-			AnchorPane.setTopAnchor(bt, topAnchor);
-			topAnchor+=30.0;
 		}
 		logoutButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override public void handle(ActionEvent event) {

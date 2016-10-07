@@ -15,3 +15,9 @@ and open the template in the editor.
 .VBox {
     -fx-background-color: cornsilk;
 }
+
+.table-view .column-header{
+    -fx-text-fill: -fx-selection-bar-text;
+    -fx-font-size: 16;
+    -fx-font-family: "Arial";
+}
